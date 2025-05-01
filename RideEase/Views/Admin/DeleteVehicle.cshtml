@@ -1,0 +1,47 @@
+﻿@model RideEase.Models.Vehicle
+
+@{
+    ViewBag.Title = "Delete Vehicle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 text-danger">Confirm Vehicle Deletion</h2>
+
+<div class="alert alert-warning">
+    <strong>Are you sure?</strong> This action will permanently remove the vehicle from the fleet.
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Name</dt>
+            <dd class="col-sm-8">@Model.Name</dd>
+
+            <dt class="col-sm-4">Type</dt>
+            <dd class="col-sm-8">@Model.Type</dd>
+
+            <dt class="col-sm-4">Price/Day</dt>
+            <dd class="col-sm-8">Rs. @Model.PricePerDay</dd>
+
+            <dt class="col-sm-4">Availability</dt>
+            <dd class="col-sm-8">@(Model.IsAvailable ? "Available" : "Unavailable")</dd>
+        </dl>
+
+        @using (Html.BeginForm("DeleteVehicle", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("id", Model.Id)
+
+            <button type="submit" class="btn btn-danger">Confirm Delete</button>
+            @Html.ActionLink("Cancel", "Vehicles", null, new { @class = "btn btn-secondary ms-2" })
+        }
+    </div>
+
+    <div class="col-md-6 text-center">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded shadow" style="max-height: 250px;" />
+        }
+    </div>
+</div>
+

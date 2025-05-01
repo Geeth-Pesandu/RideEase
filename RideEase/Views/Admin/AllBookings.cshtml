@@ -1,0 +1,65 @@
+﻿@model IEnumerable<RideEase.Models.Booking>
+
+@{
+    ViewBag.Title = "All Bookings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">All Bookings (Admin View)</h2>
+
+<!-- 🧾 Booking Status Summary -->
+<div class="mb-3">
+    <span class="badge bg-success me-2">Approved: @ViewBag.ApprovedCount</span>
+    <span class="badge bg-warning text-dark me-2">Pending: @ViewBag.PendingCount</span>
+    <span class="badge bg-danger">Rejected: @ViewBag.RejectedCount</span>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>User</th>
+            <th>Vehicle</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@(booking.User?.Email ?? "N/A")</td>
+                <td>@(booking.Vehicle?.Name ?? "N/A")</td>
+                <td>@booking.StartDate.ToShortDateString()</td>
+                <td>@booking.EndDate.ToShortDateString()</td>
+                <td>
+                    Rs. @(booking.Vehicle != null ?
+                        (booking.EndDate - booking.StartDate).Days * booking.Vehicle.PricePerDay : 0)
+                </td>
+                <td>
+                    @using (Html.BeginForm("UpdateStatus", "Admin", FormMethod.Post, new { @class = "d-flex align-items-center" }))
+                    {
+                        @Html.Hidden("id", booking.Id)
+
+                        @Html.DropDownList(
+                            "status",
+                            Enum.GetValues(typeof(RideEase.Models.BookingStatus)).Cast<RideEase.Models.BookingStatus>().Select(s =>
+                                new SelectListItem
+                                {
+                                    Text = s.ToString(),
+                                    Value = s.ToString(),
+                                    Selected = (s == booking.Status)
+                                }),
+                            new { @class = "form-select form-select-sm me-2" }
+                        )
+
+                        <button type="submit" class="btn btn-sm btn-success">Update</button>
+                    }
+                </td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

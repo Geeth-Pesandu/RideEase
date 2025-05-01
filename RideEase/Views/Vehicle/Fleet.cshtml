@@ -1,0 +1,84 @@
+﻿@model IEnumerable<RideEase.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Our Fleet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Explore Our Fleet</h2>
+
+<!-- 🔍 Filter Form -->
+@using (Html.BeginForm("Fleet", "Vehicle", FormMethod.Get, new { @class = "row g-3 mb-4" }))
+{
+    <div class="col-md-3">
+        <label class="form-label">Vehicle Type</label>
+        <select name="type" class="form-select">
+            <option value="">All</option>
+            @foreach (var t in ViewBag.Types as List<string>)
+            {
+                <option value="@t" @(Request["type"] == t ? "selected" : "")>@t</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Min Price (Rs.)</label>
+        <input type="number" name="minPrice" value="@Request["minPrice"]" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Max Price (Rs.)</label>
+        <input type="number" name="maxPrice" value="@Request["maxPrice"]" class="form-control" />
+    </div>
+
+    <div class="col-md-3 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No vehicles match your filters.</div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @foreach (var vehicle in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@vehicle.ImageUrl" class="card-img-top" alt="@vehicle.Name" style="height: 180px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@vehicle.Name</h5>
+                        <p class="card-text">@vehicle.Description</p>
+                        <p class="card-text"><strong>Type:</strong> @vehicle.Type</p>
+                        <p class="card-text"><strong>Price/Day:</strong> Rs. @vehicle.PricePerDay</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="@Url.Action("Create", "Booking", new { vehicleId = vehicle.Id })" class="btn btn-outline-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<!-- 🔁 Pagination (placed outside the 'else') -->
+@if (ViewBag.TotalPages > 1)
+{
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Fleet", new {
+                        page = i,
+                        type = ViewBag.CurrentType,
+                        minPrice = ViewBag.MinPrice,
+                        maxPrice = ViewBag.MaxPrice
+                    })">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- 🎯 Contact Section -->
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4 text-primary">Get in Touch with RideEase</h2>
+        <p class="text-muted mb-5">
+            Questions, suggestions, or feedback? We're happy to hear from you!
+        </p>
+
+        <div class="row g-4">
+            <!-- 📧 Email -->
+            <div class="col-md-4">
+                <div class="p-4 bg-white rounded shadow-sm h-100 border-top border-primary border-3">
+                    <img src="~/Images/email-icon.png" alt="Email" class="mb-3" style="height: 50px;" />
+                    <h5 class="fw-semibold">Email Us</h5>
+                    <p><a href="mailto:support@rideease.com">support@rideease.com</a></p>
+                </div>
+            </div>
+
+            <!-- ☎️ Phone -->
+            <div class="col-md-4">
+                <div class="p-4 bg-white rounded shadow-sm h-100 border-top border-success border-3">
+                    <img src="~/Images/phone-icon.png" alt="Phone" class="mb-3" style="height: 50px;" />
+                    <h5 class="fw-semibold">Call Us</h5>
+                    <p>+94 77 123 4567</p>
+                </div>
+            </div>
+
+            <!-- 📍 Address -->
+            <div class="col-md-4">
+                <div class="p-4 bg-white rounded shadow-sm h-100 border-top border-info border-3">
+                    <img src="~/Images/location-icon.png" alt="Location" class="mb-3" style="height: 50px;" />
+                    <h5 class="fw-semibold">Visit Us</h5>
+                    <p>123 RideEase Lane,<br />Colombo, Sri Lanka</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <a href="/Vehicle/Fleet" class="btn btn-primary btn-lg">Browse Vehicles</a>
+        </div>
+    </div>
+</section>

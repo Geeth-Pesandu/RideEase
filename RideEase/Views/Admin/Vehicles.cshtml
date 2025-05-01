@@ -1,0 +1,42 @@
+﻿
+@model IEnumerable<RideEase.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Vehicle Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Manage Vehicles</h2>
+
+<p>
+    <a href="@Url.Action("CreateVehicle")" class="btn btn-success">Add New Vehicle</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Price/Day</th>
+            <th>Available</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.Name</td>
+                <td>@v.Type</td>
+                <td>Rs. @v.PricePerDay</td>
+                <td>@(v.IsAvailable ? "Yes" : "No")</td>
+                <td>
+                    <a href="@Url.Action("EditVehicle", new { id = v.Id })" class="btn btn-sm btn-warning me-1">Edit</a>
+                    @Html.ActionLink("Delete", "DeleteVehicle", "Admin", new { id = v.Id }, new { @class = "btn btn-sm btn-danger" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

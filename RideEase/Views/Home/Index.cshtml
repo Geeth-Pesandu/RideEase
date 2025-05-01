@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="text-white text-center d-flex align-items-center justify-content-center" style="
+    background-image: url('/Images/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 550px;"
+         data-aos="fade-up"
+         data-aos-duration="1000">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Freedom to Drive, with RideEase</h1>
+        <p class="lead mt-3">
+            Rent cars, vans, scooters & tuk tuks across Sri Lanka<br />
+            Fast. Affordable. Reliable.
+        </p>
+        <a class="btn btn-light btn-lg mt-3 me-2" href="/Vehicle/Fleet">Book Now</a>
+        <a class="btn btn-outline-light btn-lg mt-3" href="#categories">Explore More</a>
+    </div>
+</section>
+
+<!-- ✨ Experience Highlight -->
+<section class="text-center py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Effortless Vehicle Rentals</h2>
+        <p class="text-muted mb-4">
+            Our platform makes finding and booking a vehicle a breeze. Just a few clicks to your next adventure.
+        </p>
+        <a class="btn btn-primary btn-lg" href="/Vehicle/Fleet">Explore Fleet</a>
+        
+    </div>
+</section>
+
+<!-- 🔧 Feature Highlights -->
+<section class="py-5">
+    <div class="container">
+        <h3 class="text-center fw-bold mb-5" data-aos="fade-up">Why RideEase?</h3>
+        <div class="row text-center">
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="p-4 shadow-sm rounded bg-white h-100">
+                    <h5 class="text-primary">Advanced Search</h5>
+                    <p class="text-muted">Easily find your ideal vehicle with filters by type, price, and availability.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="p-4 shadow-sm rounded bg-white h-100">
+                    <h5 class="text-primary">Customizable Options</h5>
+                    <p class="text-muted">Choose based on comfort, need, or budget — RideEase adapts to you.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="p-4 shadow-sm rounded bg-white h-100">
+                    <h5 class="text-primary">Responsive Everywhere</h5>
+                    <p class="text-muted">Our platform is designed to work beautifully on any device you use.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 🚙 Vehicle Categories -->
+<section class="py-5 bg-light" id="categories">
+    <div class="container text-center">
+        <h3 class="mb-5 fw-bold" data-aos="fade-up">Discover Our Diverse Vehicle Categories</h3>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 shadow-sm bg-white rounded h-100">
+                    <img src="~/Images/carimage.jpg" alt="Cars" class="mb-3" style="height: 140px;" />
+                    <h5 class="fw-semibold">Cars</h5>
+                    <p class="text-muted">Comfort and convenience for daily travel.</p>
+                </div>
+            </div>
+            <div class="col" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 shadow-sm bg-white rounded h-100">
+                    <img src="~/Images/van.jpg" alt="Vans" class="mb-3" style="height: 140px;" />
+                    <h5 class="fw-semibold">Vans</h5>
+                    <p class="text-muted">Perfect for group trips and family outings.</p>
+                </div>
+            </div>
+            <div class="col" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 shadow-sm bg-white rounded h-100">
+                    <img src="~/Images/tuktuk.jpg" alt="Tuk Tuks" class="mb-3" style="height: 140px;" />
+                    <h5 class="fw-semibold">Tuk Tuks</h5>
+                    <p class="text-muted">Fun and flexible for navigating busy cities.</p>
+                </div>
+            </div>
+            <div class="col" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 shadow-sm bg-white rounded h-100">
+                    <img src="~/Images/scooter.jpg" alt="Scooters" class="mb-3" style="height: 140px;" />
+                    <h5 class="fw-semibold">Scooters</h5>
+                    <p class="text-muted">Eco-friendly and ideal for quick commutes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 📈 Stats Section -->
+<section class="bg-white py-5" data-aos="fade-up">
+    <div class="container text-center">
+        <h3 class="fw-bold mb-3">RideEase by the Numbers</h3>
+        <p class="text-muted">Trusted by thousands across Sri Lanka</p>
+        <div class="row mt-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-primary">50+</h4>
+                <p class="text-muted">Vehicles Available</p>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-success">100%</h4>
+                <p class="text-muted">Customer Satisfaction</p>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="text-info">50+</h4>
+                <p class="text-muted">Locations Served</p>
+            </div>
+        </div>
+        <a class="btn btn-outline-dark mt-4" href="#">Go to Reviews</a>
+    </div>
+</section>
+
+<!-- 🎯 Final CTA -->
+<section class="text-center py-5 bg-primary text-white" data-aos="fade-up">
+    <div class="container">
+        <h3 class="fw-bold">Find Your Perfect Ride</h3>
+        <p class="lead">Explore our vehicle fleet and book your ride with confidence today.</p>
+        <a class="btn btn-light btn-lg" href="/Vehicle/Fleet">Start Booking</a>
+    </div>
+</section>
