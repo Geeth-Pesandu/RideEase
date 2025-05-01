@@ -54,12 +54,12 @@ Ensure Packages are restored
 
 Database Setup(LocalDB)
 
-The project uses Entity Framework Code First.
-On first run, the database will be automatically created and seeded with test data.
-No manual SQL setup is needed.
-If needed, you manually trigger it.
-Run this in Tools → NuGet Package Manager → Package Manager Console
-Update-Database
+1. The project uses Entity Framework Code First.
+2. On first run, the database will be automatically created and seeded with test data.
+3. No manual SQL setup is needed.
+4. If needed, you manually trigger it.
+5. Run the below command in Tools → NuGet Package Manager → Package Manager Console(Running this would be ideal)
+6. Update-Database
 
 Run the Application
 
