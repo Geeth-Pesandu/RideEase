@@ -2,7 +2,7 @@ RideEase - Vehicle Rental System
 
 RideEase is a full-featured web application built using ASP.NET MVC that allows users to register, browse vehicles, make bookings, and manage them — while administrators can manage vehicle listings and view bookings.
 
-<<<<<<< HEAD
+
 #Technologies Used
 =======
 Technologies Used
