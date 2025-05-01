@@ -38,9 +38,13 @@ How to Run the Project
 
 Open the Project in Visual Studio
 
-4. Select RideEase.sln and click open
-5. Go to Build in the tp menu
-6. Then select Rebuild Solution
+4. Select RideEase.sln and click open(In the downloaded folder)
+
+Clean and Rebuild the project
+
+1. Go to Build in the top menu
+2. Then select Clean solution
+3. Then select Rebuild Solution
 
 Ensure Packages are restored
 
@@ -54,6 +58,7 @@ The project uses Entity Framework Code First.
 On first run, the database will be automatically created and seeded with test data.
 No manual SQL setup is needed.
 If needed, you manually trigger it.
+Run this in Tools → NuGet Package Manager → Package Manager Console
 Update-Database
 
 Run the Application
