@@ -6,7 +6,7 @@ RideEase is a full-featured web application built using ASP.NET MVC that allows 
 #Technologies Used
 =======
 Technologies Used
->>>>>>> 6e44761ef3e8de0291e1c2375f009a6c5e4409bb
+
 - ASP.NET MVC 5
 - Entity Framework 6
 - SQL Server (LocalDB)
